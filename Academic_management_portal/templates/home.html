@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>college website</title>
+    <link rel="stylesheet" href="college_web.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>* {margin: 0;
+        padding: 0;}
+      .header {min-height: 100vh;
+              width:100%;
+          background-image:linear-gradient(rgba(5,9,30,0.7),rgba(5,9,30,0.7)),url(https://pbs.twimg.com/media/FfKU4fFXEAAH1Px?format=jpg&name=medium) ;
+          background-size: cover;
+          background-position:center ;
+          position: relative;
+      }
+      .logo {margin-left: 1%;
+    margin-top:1%}
+      
+      nav {display:flex ;
+      padding: 2% 6%;
+      justify-content: space-between;
+      align-items: center;
+    }
+      nav img {width: 150px;
+      }
+      .nav-links {flex: 1;
+      text-align: right;
+    }
+      .nav-links ul li {list-style: none;
+      display: inline-block;
+      padding: 8px 12px;
+      position:relative
+    }
+    .nav-links ul li a {color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    }
+    .nav-links ul li ::after {content: '';
+    width:0% ;
+    height:2px;
+    background: #f44336;
+    display:block ;
+    margin:auto ;
+    transition:0.6s;}
+    
+    .nav-links ul li :hover::after{width:100%
+    
+    }
+    .textbook {width:50%;
+        color:#fff;
+         position :absolute;
+         top:50%;
+         left:50%;
+         transform: translate(-50%,-50%);
+          text-align: center;}
+    .textbook h1 {font-size: 62px;}
+    .textbook p {margin: 10px 0 40px;
+    font-size: 14px;}
+    
+    .text-btn {/*display:inline-block;*/
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+    border:1px solid #fff;
+    padding: 12px 34px;
+    /*background: transparent;
+    position:relative;*/
+    }
+    .text-btn:hover {border:1px solid #f64336;
+      background: #f44336;
+      transition:0.8s;}
+      nav .fa {display:none;}
+    
+    @media(max-width: 700px) {
+    .textbook h1{font-size: 20px;}
+    
+    .nav-links ul li{ display:block;}
+    
+    .nav-links { position:absolute;
+              background:#f44336;
+              height:100vh;
+          width:200px;
+          top:0;
+          right:-200px;
+          text-align: left;
+          z-index:2;
+          transition: 1s;
+      }
+    nav .fa {display:block;
+    color:#fff;
+    font-size: 10px;
+    margin:10px;}
+    }
+    
+    
+    /* course*/
+    .course {
+      width:80%;
+      margin:auto;
+      text-align: center;
+      padding-top: 100px;
+      }
+      h1{font-size: 36px;
+      font-weight:600;}
+      
+      p {color:#777;
+      font-weight: 300;
+      padding:10px;
+      line-height:22px;
+      font-size:14px;}
+      
+      .row  {
+        margin-top: 5%;
+            display:flex;
+          justify-content: space-between;
+      }
+      
+      .course-col {flex-basis:31%;
+        background:#ff9765;
+        border-radius:10px;
+        margin-bottom: 5%;
+        margin-right: auto;
+        box-sizing:border-box;
+        padding:20px 12px;
+        transition:0.5s;
+        
+      }
+      .course-col a {text-decoration: none;
+        color: black;}
+        
+        body {
+          background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 33%, #fad0c4 66%, #ff9a9e 100%);
+          font-family: Arial, sans-serif;
+    
+      .course-col :hover {box-shadow: 0 0 20 0px rgba(0,0,0,0.2);}
+      @media(max-width:700px) { 
+        .row {flex-direction: column;}
+      }
+      .contact{text-align: left;
+      font-size: 14px;
+    }
+        
+    .course .contact {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      margin: 1em;
+      padding: 1em;
+  }
+
+</style>
+</head>
+<body>
+  <section class="header">
+      <nav>
+          <div class="logo">
+            <img src="{{ url_for('static', filename='Sitare-University-Logo.webp') }}" alt="Sitare-University-Logo">
+          </div>
+          <div class="nav-links" id="navLinks">
+              <i class="fa fa-times" onclick="hidemenu()"></i>
+              <ul>
+                  <li><a href="{{ url_for('home') }}">Home</a></li>
+                  <li><a href="{{ url_for('course') }}">Course</a></li>
+                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
+              </ul>
+          </div>
+          <i class="fa fa-bars" onclick="showmenu()"></i>
+      </nav>
+<div class="textbook"> 
+    <h1>SITARE University </h1>
+    <p>this Univrsity provides better quality of education<br>
+        and also better experience.
+    </p>
+<a href="https://sitare.org/univ/" class="text-btn" target="_blank">Visit us</a>
+</div>
+
+    </section>
+
+    <section class="course">
+      <h1>Academic portal</h1>
+      <p>Academic data of SITARE University students</p>
+      <div class="row">
+          <div class="course-col">
+            <a href="{{ url_for('first_year') }}" target="_blank"><h2>First Year</h2>
+              <p>Data of first year students </p> </a>
+              </div>
+              <div class="course-col">
+                <a href="{{ url_for('second_year') }}" target="_blank"> <h2>Second Year</h2>
+                  <p>Data of second year students </p>
+                  </div>
+                  <div class="course-col">
+                    <a href="{{ url_for('third_year') }}" target="_blank"> <h2>Third Year</h2>
+                      <p>Data of third year students </p>
+                      </div>
+          </div>
+      </div>
+      <footer class="contact">
+        <p> For more information<br>
+          Contact us: 8114412628<br>email:
+        <a href="mailto:hege@example.com">yashwardhan433@gmail.com</a></p>
+      </footer>
+  </section>
+  
+    </section>
+    <script>
+
+    var navLinks = document.getElementById("navLinks");
+
+    function showmenu() {
+            navLinks.style.right ="0"}
+            function hidemenu() {
+            navLinks.style.right ="-200px"}
+    </script>
+    
+</body>
+</html>

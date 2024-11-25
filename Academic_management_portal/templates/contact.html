@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>college website</title>
+    <link rel="stylesheet" href="college_web.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style> * {margin: 0;
+        padding: 0;}
+      .header {min-height: 100vh;
+              width:100%;
+          background-image:linear-gradient(rgba(5,9,30,0.7),rgba(5,9,30,0.7)),url(https://blog.academyoflearning.com/wp-content/uploads/2017/06/contact-info-700x467.jpg) ;
+          background-size: cover;
+          background-position:center ;
+          position: relative;
+      }
+      body {
+        background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 33%, #fad0c4 66%, #ff9a9e 100%);
+        font-family: Arial, sans-serif;
+    }
+    
+    .help h1 {
+        color: #333;
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+    
+    .help .img {
+        text-align: center;
+        margin: 1em 0;
+    }
+    
+    .help .contact {
+        background: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        margin: 1em;
+        padding: 1em;
+    }
+    
+      .logo {margin-left: 1%;
+    margin-top:1%}
+      
+      nav {display:flex ;
+      padding: 2% 6%;
+      justify-content: space-between;
+      align-items: center;
+    }
+      nav img {width: 150px;
+      }
+      .nav-links {flex: 1;
+      text-align: right;
+    }
+      .nav-links ul li {list-style: none;
+      display: inline-block;
+      padding: 8px 12px;
+      position:relative
+    }
+    .nav-links ul li a {color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    }
+    .nav-links ul li ::after {content: '';
+    width:0% ;
+    height:2px;
+    background: #f44336;
+    display:block ;
+    margin:auto ;
+    transition:0.6s;}
+    
+    .nav-links ul li :hover::after{width:100%
+    
+    }
+    .textbook {width:50%;
+        color:#fff;
+         position :absolute;
+         top:50%;
+         left:50%;
+         transform: translate(-50%,-50%);
+          text-align: center;}
+    .textbook h1 {font-size: 62px;}
+    .textbook p {margin: 10px 0 40px;
+    font-size: 14px;}
+    
+    .text-btn {/*display:inline-block;*/
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+    border:1px solid #fff;
+    padding: 12px 34px;
+    /*background: transparent;
+    position:relative;*/
+    }
+    .text-btn:hover {border:1px solid #f64336;
+      background: #f44336;
+      transition:0.8s;}
+      nav .fa {display:none;}
+    
+    @media(max-width: 700px) {
+    
+    .nav-links ul li{ display:block;}
+    
+    .nav-links { position:absolute;
+              background:#f44336;
+              height:100vh;
+          width:200px;
+          top:0;
+          right:-200px;
+          text-align: left;
+          z-index:2;
+          transition: 1s;
+      }
+    nav .fa {display:block;
+    color:#fff;
+    font-size: 10px;
+    margin:10px;}
+    }
+      @media(max-width:700px) { 
+      .contact{text-align: left;
+      font-size: 14px;
+      margin-top: 100%;
+    }}
+.help {font-size: 20px;
+color: black;
+font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+text-align: center;
+margin: 40px;
+}
+.form {width:40px;}
+
+.img {float: right;
+}
+.contact {text-align:left; }
+.container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin: 1em;
+  padding: 1em;
+}
+
+</style>
+</head>
+<body>
+  <section class="header">
+      <nav>
+          <div class="logo">
+            <img src="{{ url_for('static', filename='Sitare-University-Logo.webp') }}" alt="Sitare-University-Logo">
+          </div>
+          <div class="nav-links" id="navLinks">
+              <i class="fa fa-times" onclick="hidemenu()"></i>
+              <ul>
+                  <li><a href="{{ url_for('home') }}">Home</a></li>
+                  <li><a href="{{ url_for('course') }}">Course</a></li>
+                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
+              </ul>
+          </div>
+          <i class="fa fa-bars" onclick="showmenu()"></i>
+      </nav>
+    </section>
+
+    <section class="help">
+      <h1>How we can help you ?</h1>
+      <div class="container">
+          <form action="{{ url_for('submit_form') }}" method="post">
+              <legend style="text-align: left; color:orangered"><b>Something about you:</b></legend>
+              <div class="form">
+                  <label for="fname">First name:</label>
+                  <input type="text" id="fname" name="fname"><br>
+                  <label for="lname">Last name:</label>
+                  <input type="text" id="lname" name="lname"><br>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email"><br>
+                  <label for="query">Query:</label>
+                  <input type="text" id="query" name="query"><br>
+                  <input type="submit" value="Submit">
+              </div>
+          </form>
+      </div>
+      <footer class="contact">
+          <p> For more information<br>
+            Contact us: 8114412628<br>email:
+          <a href="mailto:yashwardhan431@gmail.com">yashwardhan431@gmail.com</a></p>
+      </footer>
+  </section>
+  
+  
+    <script>
+
+    var navLinks = document.getElementById("navLinks");
+
+     function showmenu() {
+            navLinks.style.right ="0"}
+            function hidemenu() {
+            navLinks.style.right ="-200px"}
+    </script>
+    
+</body>
+</html>

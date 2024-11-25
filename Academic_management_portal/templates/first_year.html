@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 33%, #fad0c4 66%, #ff9a9e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 10vh;
+            margin: 10px;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            margin-top: 20%;
+            text-align: center;
+            font-size: 3em;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2em;
+        }
+        
+        input[type="file"], input[type="submit"] {
+            margin: 2.5em 0;
+            padding: 1.5em;
+            border: none;
+            border-radius: 10px;
+            background: #030303;
+            color: white;
+            cursor: pointer;
+        }
+
+        .text-btn {
+            margin: 2.5em 0;
+            padding: 1.5em;
+            border: none;
+            border-radius: 10px;
+            background: #030303;
+            color: white;
+            cursor: pointer;
+        }
+        
+    
+    </style>
+</head>
+<body>
+    <section>
+        <div class="textbook"> 
+            <h1>Data of first year student </h1>
+            <form action="{{ url_for('upload_file_first') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload">
+                <a href="{{ url_for('result_first') }}" class="text-btn" target="_blank">View Result</a>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

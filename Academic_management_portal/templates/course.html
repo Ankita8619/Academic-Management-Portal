@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>college website</title>
+    <link rel="stylesheet" href="college_web.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>* {margin: 0;
+        padding: 0;}
+      .header {min-height: 100vh;
+              width:100%;
+          background-image:linear-gradient(rgba(5,9,30,0.7),rgba(5,9,30,0.7)),url(https://images.theconversation.com/files/92022/original/image-20150817-5083-1gbq5tv.jpg?ixlib=rb-1.1.0&rect=0%2C1018%2C5507%2C2674&q=45&auto=format&w=1356&h=668&fit=crop) ;
+          background-size: cover;
+          background-position:center ;
+          position: relative;
+      }
+      body {
+        background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 33%, #fad0c4 66%, #ff9a9e 100%);
+        font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+    
+    h2 {
+        color: #555;
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+    
+    .course {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        margin: 1em;
+        padding: 1em;
+    }
+    
+    .course ul {
+        padding-left: 1em;
+    }
+    
+    .course ul li {
+        line-height: 1.6;
+    }
+    
+    .Notice {
+        color: red;
+        font-weight: bold;
+        font-size: xx-large;
+    }
+    
+    .news {
+        color: #333;
+        font-size: 1.2em;
+    }
+    
+    .adv {
+        background: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        margin: 1em;
+        padding: 1em;
+    }
+    
+      .logo {margin-left: 1%;
+    margin-top:1%}
+      
+      nav {display:flex ;
+      padding: 2% 6%;
+      justify-content: space-between;
+      align-items: center;
+    }
+      nav img {width: 150px;
+      }
+      .nav-links {flex: 1;
+      text-align: right;
+    }
+      .nav-links ul li {list-style: none;
+      display: inline-block;
+      padding: 8px 12px;
+      position:relative
+    }
+    .nav-links ul li a {color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    }
+    .nav-links ul li ::after {content: '';
+    width:0% ;
+    height:2px;
+    background: #f44336;
+    display:block ;
+    margin:auto ;
+    transition:0.6s;}
+    
+    .nav-links ul li :hover::after{width:100%
+    
+    }
+    
+    .text-btn {/*display:inline-block;*/
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+    border:1px solid #fff;
+    padding: 12px 34px;
+    /*background: transparent;
+    position:relative;*/
+    }
+    .text-btn:hover {border:1px solid #f64336;
+      background: #f44336;
+      transition:0.8s;}
+      nav .fa {display:none;}
+    
+    @media(max-width: 700px) {
+    .textbook h1{font-size: 20px;}
+    
+    .nav-links ul li{ display:block;}
+    
+    .nav-links { position:absolute;
+              background:#f44336;
+              height:100vh;
+          width:200px;
+          top:0;
+          right:-200px;
+          text-align: left;
+          z-index:2;
+          transition: 1s;
+      }
+    nav .fa {display:block;
+    color:#fff;
+    font-size: 10px;
+    margin:10;}}
+
+    .textbook {width:50%;
+        color:orangered;
+         position :absolute;
+         top:50%;
+         left:50%;
+         transform: translate(-50%,-50%);
+          text-align: center;}
+    .textbook h1 {font-size: 42px;}
+    .textbook p {margin: 10px 0 40px;
+    font-size: 30px;
+color: aquamarine;}
+
+</style>
+</head>
+<body>
+  <section class="header">
+      <nav>
+          <div class="logo">
+            <img src="{{ url_for('static', filename='Sitare-University-Logo.webp') }}" alt="Sitare-University-Logo">
+          </div>
+          <div class="nav-links" id="navLinks">
+              <i class="fa fa-times" onclick="hidemenu()"></i>
+              <ul>
+                  <li><a href="{{ url_for('home') }}">Home</a></li>
+                  <li><a href="{{ url_for('course') }}">Course</a></li>
+                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
+              </ul>
+          </div>
+          <i class="fa fa-bars" onclick="showmenu()"></i>
+      </nav>
+        <div class="textbook"> 
+          <h1>MINIMUM COURSE CURRICULUM FOR UNDERGRADUATE COURSES
+            UNDER CHOICE BASED CREDIT SYSTEM</h1>
+          <p>
+          </p>
+          </div> 
+    </section>
+    <center><b class="Notice">Notice:</b></center>
+    <marquee class="news"> The University has been established for only two years, hence the syllabus will be added when third year students come.</marquee>
+    <!--javascript for toggle menu-->
+    <script>
+
+    var navLinks = document.getElementById("navLinks");
+
+     function showmenu() {
+            navLinks.style.right ="0"}
+            function hidemenu() {
+            navLinks.style.right ="-200px"}
+    </script>
+    <div class="adv">
+      <h2>Advantages of the choice based credit system:</h2>
+<p> Shift in focus from the teacher-centric to student-centric education.
+ Student may undertake as many credits as they can cope with (without repeating all
+courses in a given semester if they fail in one/more courses).
+ CBCS allows students to choose inter-disciplinary, intra-disciplinary courses, skill
+oriented papers (even from other disciplines according to their learning needs, interests
+and aptitude) and more flexibility for students </p>
+    </div>
+    <div class="course">
+           <h1>For first year</h1>
+            <ul>
+                <li>Python</li>
+                <li>Mathematics (linear algebra)</li>
+                <li>Introduction to computer</li>
+                <li>Communication and Ethics</li>
+
+            </ul>
+
+    </div>
+    <div class="course">
+        <h1>For Second year</h1>
+         <ul>
+             <li>Python</li>
+             <li>Mathematics (Probability)</li>
+             <li>Artificial intelligence</li>
+             <li>DSA</li>
+             <li>Communication and Ethics</li>
+
+         </ul>
+
+ </div>
+    
+</body>
+</html>
